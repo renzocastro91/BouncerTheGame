@@ -1,0 +1,297 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Juego/Menus/MenuGameOver.gd" type="Script" id=1]
+[ext_resource path="res://Juego/Menus/Botones/BotonSalida.gd" type="Script" id=2]
+[ext_resource path="res://Juego/Menus/Botones/BotonMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Recursos/Players/bunny1_hurt.png" type="Texture" id=4]
+[ext_resource path="res://Recursos/Fonts/Kenney Mini Square Mono.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Recursos/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Background/bg_layer3.png" type="Texture" id=8]
+[ext_resource path="res://Recursos/Background/bg_layer4.png" type="Texture" id=9]
+[ext_resource path="res://Recursos/Background/bg_layer2.png" type="Texture" id=10]
+[ext_resource path="res://Recursos/Items/bubble.png" type="Texture" id=11]
+[ext_resource path="res://Recursos/Environment/ground_grass.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 23
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 23
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.156863, 0.12549, 0.12549, 1 )
+border_width_bottom = 6
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+outline_color = Color( 0.133333, 1, 0.533333, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "auch"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/bubble:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect/bubble2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect/bubble5:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect/bubble3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[node name="MenuGameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -500 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas2" type="ParallaxLayer" parent="ParallaxBackground/ParallaxFondo"]
+motion_scale = Vector2( 0.3, 1 )
+motion_offset = Vector2( 0, -150 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo/ParallaxNubesLejanas2"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesLejanas"]
+margin_left = -85.5264
+margin_top = -648.574
+margin_right = 1962.47
+margin_bottom = 1399.43
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesMedias"]
+margin_left = -42.7632
+margin_top = -769.736
+margin_right = 2005.24
+margin_bottom = 1278.26
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesCercanas"]
+margin_left = -158.86
+margin_top = -796.217
+margin_right = 1889.14
+margin_bottom = 1251.78
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.54902, 0.752941, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bunny1_hurt" type="Sprite" parent="ColorRect"]
+position = Vector2( 266.281, 365.67 )
+texture = ExtResource( 4 )
+
+[node name="bubble" type="Sprite" parent="ColorRect"]
+position = Vector2( 323.017, 379.383 )
+scale = Vector2( 0.172435, 0.16297 )
+texture = ExtResource( 11 )
+
+[node name="bubble2" type="Sprite" parent="ColorRect"]
+position = Vector2( 359.544, 345.529 )
+scale = Vector2( 0.231547, 0.229269 )
+texture = ExtResource( 11 )
+
+[node name="bubble3" type="Sprite" parent="ColorRect"]
+position = Vector2( 417.453, 300.984 )
+scale = Vector2( 0.341326, 0.312143 )
+texture = ExtResource( 11 )
+
+[node name="bubble5" type="Sprite" parent="ColorRect"]
+position = Vector2( 519.574, 241.625 )
+scale = Vector2( 0.701296, 0.632265 )
+texture = ExtResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -458.878
+margin_top = -545.925
+margin_right = -130.878
+margin_bottom = -238.925
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonReintentar" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 327.0
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 1 )
+text = "Reintentar"
+
+[node name="BotonMenuPrincipal" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 101.0
+margin_right = 327.0
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 2 )
+text = "Menu Principal"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 202.0
+margin_right = 327.0
+margin_bottom = 206.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonSalida" type="Button" parent="VBoxContainer"]
+margin_top = 210.0
+margin_right = 327.0
+margin_bottom = 307.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.0352941, 0.705882, 0.94902, 1 )
+custom_colors/font_color_hover = Color( 0.243137, 0.941176, 0.0627451, 1 )
+custom_colors/font_color_pressed = Color( 0.298039, 0.890196, 0.0313726, 1 )
+text = "Salir"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 84.3595
+margin_top = 97.2897
+margin_right = 485.359
+margin_bottom = 167.289
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+margin_right = 401.0
+margin_bottom = 69.0
+color = Color( 0.113725, 0.137255, 0.215686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPrincipal" type="Label" parent="Panel"]
+modulate = Color( 0.282353, 0.980392, 0, 1 )
+margin_left = 18.9437
+margin_top = 10.0361
+margin_right = 374.944
+margin_bottom = 63.0361
+custom_fonts/font = SubResource( 6 )
+text = "Game Over"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ground_grass" type="Sprite" parent="."]
+position = Vector2( 279.766, 498.736 )
+texture = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "auch"
+anims/auch = SubResource( 7 )
+[connection signal="pressed" from="VBoxContainer/BotonReintentar" to="." method="_on_BotonReintentar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotonMenuPrincipal" to="." method="_on_BotonMenuPrincipal_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotonSalida" to="VBoxContainer/BotonSalida" method="_on_pressed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Zanahoria_llave.wav-6bcd6fa5f0bdaa958ae8e3799bc3eb64.sample"
+
+[deps]
+
+source_file="res://Recursos/Sfx/Zanahoria_llave.wav"
+dest_files=[ "res://.import/Zanahoria_llave.wav-6bcd6fa5f0bdaa958ae8e3799bc3eb64.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

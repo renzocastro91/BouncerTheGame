@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=1]
+[ext_resource path="res://Juego/Interfaz/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Menus/MenuPausa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Background/bg_layer4.png" type="Texture" id=6]
+[ext_resource path="res://Recursos/Background/bg_layer3.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Background/bg_layer2.png" type="Texture" id=8]
+[ext_resource path="res://Juego/Personaje/PersonajePrincipal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Juego/Objetos/Portal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Juego/Plataformas/PlataformaLargaPiedra.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Juego/Objetos/ZanahoriaLlave.tscn" type="PackedScene" id=13]
+
+[node name="NivelBase" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -500 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas2" type="ParallaxLayer" parent="ParallaxBackground/ParallaxFondo"]
+motion_scale = Vector2( 0.3, 1 )
+motion_offset = Vector2( 0, -150 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo/ParallaxNubesLejanas2"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesLejanas"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesMedias"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesCercanas"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CapaFrente" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CapaFrente" instance=ExtResource( 3 )]
+
+[node name="MenuPausa" parent="CapaFrente" instance=ExtResource( 4 )]
+visible = false
+
+[node name="PlataformasNormales" type="Node" parent="."]
+
+[node name="PlataformasCortas" type="Node" parent="."]
+
+[node name="PlataformasLargas" type="Node" parent="."]
+
+[node name="PlataformaLargaPiedra" parent="PlataformasLargas" instance=ExtResource( 12 )]
+position = Vector2( 632.715, 498.727 )
+
+[node name="ObjetosDecorativos" type="Node" parent="."]
+
+[node name="Enemigos" type="Node" parent="."]
+
+[node name="Monedas" type="Node" parent="."]
+
+[node name="PlataformasImpulsoras" type="Node" parent="."]
+
+[node name="PowerUp\'s" type="Node" parent="."]
+
+[node name="PlataformasTrampa" type="Node" parent="."]
+
+[node name="ZanahoriaLlave" type="Node" parent="."]
+
+[node name="ZanahoriaLlave" parent="ZanahoriaLlave" instance=ExtResource( 13 )]
+position = Vector2( 447.357, 420.448 )
+
+[node name="Rayos" type="Node" parent="."]
+
+[node name="PersonajePrincipal" parent="." instance=ExtResource( 10 )]
+position = Vector2( 616.327, 474.449 )
+
+[node name="Portal" parent="." instance=ExtResource( 11 )]
+position = Vector2( 819.397, 410.821 )
+
+[node name="ContenedorVidas" type="Node" parent="."]

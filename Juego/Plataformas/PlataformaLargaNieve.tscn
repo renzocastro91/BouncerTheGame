@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/Plataformas/PlataformaLargaCesped.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Recursos/Environment/ground_snow.png" type="Texture" id=2]
+[ext_resource path="res://Recursos/Environment/grass2.png" type="Texture" id=3]
+[ext_resource path="res://Recursos/Environment/grass1.png" type="Texture" id=4]
+
+[node name="PlataformaLargaNieve" instance=ExtResource( 1 )]
+position = Vector2( -5.30331, 13.7886 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="grass2" type="Sprite" parent="." index="2"]
+position = Vector2( 847.8, -109.883 )
+texture = ExtResource( 3 )
+
+[node name="grass3" type="Sprite" parent="." index="3"]
+position = Vector2( 67.625, -112.24 )
+texture = ExtResource( 3 )
+
+[node name="grass1" type="Sprite" parent="." index="4"]
+position = Vector2( -865.237, -104.994 )
+texture = ExtResource( 4 )

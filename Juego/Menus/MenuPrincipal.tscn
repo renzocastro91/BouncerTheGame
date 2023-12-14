@@ -1,0 +1,288 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Juego/Menus/Botones/BotonSalida.gd" type="Script" id=1]
+[ext_resource path="res://Juego/Menus/Botones/BotonMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Recursos/Players/bunny1_jump.png" type="Texture" id=3]
+[ext_resource path="res://Recursos/Players/bunny1_ready.png" type="Texture" id=4]
+[ext_resource path="res://Recursos/Background/bg_layer4.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Background/bg_layer2.png" type="Texture" id=6]
+[ext_resource path="res://Recursos/Background/bg_layer3.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=8]
+[ext_resource path="res://Recursos/Fonts/Kenney Mini Square Mono.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Recursos/Environment/ground_grass.png" type="Texture" id=10]
+[ext_resource path="res://Juego/Menus/MenuPrincipal.gd" type="Script" id=11]
+[ext_resource path="res://Juego/Objetos/MonedaOro.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Recursos/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Juego/Objetos/ZanahoriaLlave.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Animation" id=1]
+resource_name = "AnimacionMenu"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("bunny1_ready:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bunny1_jump:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bunny1_jump:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.8, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 975.541, 324.131 ), Vector2( 975.541, 324.131 ), Vector2( 975.541, 324.131 ), Vector2( 975.541, 324.131 ), Vector2( 975.541, 324.131 ), Vector2( 978.211, 134.584 ), Vector2( 975.541, 324.131 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("bunny1_jump:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.8, 1.1, 1.3, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 180.0, 359.999, 359.999 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 27
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.156863, 0.12549, 0.12549, 1 )
+border_width_bottom = 6
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 9 )
+
+[node name="MenuPrincipal" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.121569, 0.215686, 0.72549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bunny1_ready" type="Sprite" parent="."]
+visible = false
+position = Vector2( 978.211, 329.47 )
+texture = ExtResource( 4 )
+
+[node name="bunny1_jump" type="Sprite" parent="."]
+position = Vector2( 975.541, 324.131 )
+rotation = 6.28317
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "AnimacionMenu"
+anims/AnimacionMenu = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2( 0, -500 )
+
+[node name="ParallaxFondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 2048, 2048 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas2" type="ParallaxLayer" parent="ParallaxBackground/ParallaxFondo"]
+motion_scale = Vector2( 0.3, 1 )
+motion_offset = Vector2( 0, -150 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxFondo/ParallaxNubesLejanas2"]
+margin_right = 2048.0
+margin_bottom = 2048.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesLejanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesLejanas"]
+margin_left = -85.5264
+margin_top = -648.574
+margin_right = 1962.47
+margin_bottom = 1399.43
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesMedias" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesMedias"]
+margin_left = -42.7632
+margin_top = -769.736
+margin_right = 2005.24
+margin_bottom = 1278.26
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxNubesCercanas" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxNubesCercanas"]
+margin_left = -158.86
+margin_top = -796.217
+margin_right = 1889.14
+margin_bottom = 1251.78
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ground_grass" type="Sprite" parent="."]
+position = Vector2( 976.593, 472.556 )
+texture = ExtResource( 10 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 152.538
+margin_top = 80.3248
+margin_right = 553.537
+margin_bottom = 150.324
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+margin_right = 401.0
+margin_bottom = 69.0
+color = Color( 0.470588, 0.870588, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPrincipal" type="Label" parent="Panel"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 18.9437
+margin_top = 10.0361
+margin_right = 374.944
+margin_bottom = 63.0361
+custom_fonts/font = SubResource( 2 )
+text = "Menu Principal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonedaOro" parent="." instance=ExtResource( 13 )]
+position = Vector2( 809.375, 373.464 )
+scale = Vector2( 2, 2 )
+
+[node name="MonedaOro2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1140.69, 376.828 )
+scale = Vector2( 2, 2 )
+
+[node name="ZanahoriaLlave" parent="." instance=ExtResource( 16 )]
+position = Vector2( 89.8453, 95.313 )
+rotation = 6.28319
+scale = Vector2( 1.5, 1.5 )
+
+[node name="ZanahoriaLlave2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 613.958, 96.4317 )
+rotation = 1.5708
+scale = Vector2( 1.5, 1.5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 182.787
+margin_top = 260.764
+margin_right = 507.787
+margin_bottom = 548.764
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonIniciar" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 325.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 3 )
+text = "Iniciar Juego"
+
+[node name="BotonTutorial" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 100.0
+margin_right = 325.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 3 )
+text = "Tutorial"
+
+[node name="BotonSalida" type="Button" parent="VBoxContainer"]
+margin_top = 200.0
+margin_right = 325.0
+margin_bottom = 287.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.0352941, 0.705882, 0.94902, 1 )
+custom_colors/font_color_hover = Color( 0.243137, 0.941176, 0.0627451, 1 )
+custom_colors/font_color_pressed = Color( 0.298039, 0.890196, 0.0313726, 1 )
+text = "Salir"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/BotonIniciar" to="." method="_on_BotonIniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotonTutorial" to="." method="_on_BotonTutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotonSalida" to="VBoxContainer/BotonSalida" method="_on_pressed"]

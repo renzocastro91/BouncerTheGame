@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sunin_shoot.wav-5e5345ec7aa4a9d73f5897bfd5716042.sample"
+
+[deps]
+
+source_file="res://Recursos/Sfx/Sunin_shoot.wav"
+dest_files=[ "res://.import/Sunin_shoot.wav-5e5345ec7aa4a9d73f5897bfd5716042.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

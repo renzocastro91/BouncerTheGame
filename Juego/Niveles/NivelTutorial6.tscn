@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Juego/Plataformas/PlataformaNieve.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Objetos/PowerUps/PowerUpSalto.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Recursos/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 4 )
+
+[node name="NivelTutorial6" instance=ExtResource( 3 )]
+nivel_actual = "res://Juego/Niveles/NivelTutorial6.tscn"
+
+[node name="Label" type="Label" parent="CapaFrente" index="2"]
+modulate = Color( 0.901961, 0.482353, 0.145098, 1 )
+margin_left = 561.563
+margin_top = -0.663331
+margin_right = 844.567
+margin_bottom = 140.337
+custom_fonts/font = SubResource( 1 )
+text = "Power Up
+    Salto"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="PlataformaNieve" parent="PlataformasNormales" index="0" instance=ExtResource( 1 )]
+position = Vector2( 947.88, 414.074 )
+
+[node name="PlataformaLargaPiedra" parent="PlataformasLargas" index="0"]
+position = Vector2( 619.261, 639.997 )
+
+[node name="PowerUpSalto" parent="PowerUp\'s" index="0" instance=ExtResource( 2 )]
+position = Vector2( 733.261, 575.173 )
+
+[node name="ZanahoriaLlave" parent="ZanahoriaLlave" index="0"]
+position = Vector2( 383.449, 568.446 )
+
+[node name="PersonajePrincipal" parent="." index="13"]
+position = Vector2( 518.783, 612.356 )
+
+[node name="Portal" parent="." index="14"]
+position = Vector2( 940.486, 330.095 )
+proximo_nivel = "res://Juego/Niveles/NivelTutorial7.tscn"

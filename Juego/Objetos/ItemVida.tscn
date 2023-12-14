@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Recursos/Environment/mushroom_brown.png" type="Texture" id=1]
+[ext_resource path="res://Recursos/Environment/mushroom_red.png" type="Texture" id=2]
+[ext_resource path="res://Recursos/Sfx/ItemVida.wav" type="AudioStream" id=3]
+[ext_resource path="res://Juego/Objetos/ItemVida.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 56.0745
+
+[sub_resource type="Animation" id=3]
+resource_name = "consumir"
+length = 0.35
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Consumir")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 0, 0 ) ]
+}
+
+[node name="ItemVida" type="Area2D"]
+collision_layer = 2147483664
+collision_mask = 2
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.891907, 2.08111 )
+scale = Vector2( 0.6, 0.6 )
+shape = SubResource( 2 )
+
+[node name="Consumir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -28.0
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/consumir = SubResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_ItemVida_body_entered"]

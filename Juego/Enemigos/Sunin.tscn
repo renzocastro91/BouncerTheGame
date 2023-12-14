@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Recursos/Sfx/Sunin_shoot.wav" type="AudioStream" id=1]
+[ext_resource path="res://Recursos/Enemies/sun1.png" type="Texture" id=2]
+[ext_resource path="res://Juego/Enemigos/Nubolin.tscn" type="PackedScene" id=3]
+
+[node name="Sunin" instance=ExtResource( 3 )]
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 1.0752, 1 )
+texture = ExtResource( 2 )
+
+[node name="PosicionCentro" parent="Sprite/PosicionesDisparo" index="0"]
+position = Vector2( 2.01142, 42.4636 )
+
+[node name="PosicionIzquierda" parent="Sprite/PosicionesDisparo" index="1"]
+position = Vector2( -33.5292, 42.6088 )
+
+[node name="PosicionDerecha" parent="Sprite/PosicionesDisparo" index="2"]
+position = Vector2( 43.0558, 40.5344 )
+
+[node name="Rayos" parent="." index="3"]
+stream = ExtResource( 1 )
+volume_db = -28.347

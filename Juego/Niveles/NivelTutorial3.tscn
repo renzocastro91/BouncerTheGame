@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Juego/Enemigos/Pinchon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Plataformas/PlataformaArena.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Niveles/NivelTutorial1.tscn" type="PackedScene" id=3]
+
+[node name="NivelTutorial3" instance=ExtResource( 3 )]
+nivel_actual = "res://Juego/Niveles/NivelTutorial3.tscn"
+
+[node name="Nivel" parent="CapaFrente" index="2"]
+text = "Enemigos"
+
+[node name="PlataformaArena" parent="PlataformasNormales" index="0" instance=ExtResource( 2 )]
+position = Vector2( 940.45, 487.707 )
+
+[node name="PlataformaArena2" parent="PlataformasNormales" index="1" instance=ExtResource( 2 )]
+position = Vector2( 173.398, 462.279 )
+
+[node name="PlataformaLargaPiedra" parent="PlataformasLargas" index="0"]
+position = Vector2( 579.742, 594.079 )
+
+[node name="Pinchon" parent="Enemigos" index="0" instance=ExtResource( 1 )]
+position = Vector2( 592.837, 571.185 )
+
+[node name="ZanahoriaLlave" parent="ZanahoriaLlave" index="0"]
+position = Vector2( 428.287, 539.108 )
+
+[node name="PersonajePrincipal" parent="." index="12"]
+position = Vector2( 181.947, 449.022 )
+
+[node name="Portal" parent="." index="13"]
+position = Vector2( 935.167, 391.269 )
+proximo_nivel = "res://Juego/Niveles/NivelTutorial4.tscn"

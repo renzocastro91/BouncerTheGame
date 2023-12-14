@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Juego/Enemigos/Volon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Niveles/NivelTutorial3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=3]
+
+[node name="NivelTutorial4" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+nivel_actual = "res://Juego/Niveles/NivelTutorial4.tscn"
+
+[node name="Volon" parent="Enemigos" index="1" instance=ExtResource( 1 )]
+position = Vector2( 413.721, 450.721 )
+
+[node name="ZanahoriaLlave" parent="ZanahoriaLlave" index="0"]
+position = Vector2( 596.466, 317.111 )
+
+[node name="Portal" parent="." index="13"]
+position = Vector2( 928.44, 408.087 )
+proximo_nivel = "res://Juego/Niveles/NivelTutorial5.tscn"

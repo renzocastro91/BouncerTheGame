@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Recursos/Fonts/Kenney Mini Square Mono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Recursos/Background/bg_layer1.png" type="Texture" id=2]
+[ext_resource path="res://Recursos/HUD/coin_gold.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.6 ), Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.6 ) ]
+}
+
+[node name="ContenedorMonedas" type="NinePatchRect"]
+self_modulate = Color( 0.992157, 0.0666667, 0.0666667, 0.462745 )
+margin_left = 18.0
+margin_top = 5.0
+margin_right = 127.0
+margin_bottom = 28.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Cantidad" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 10.1083
+margin_top = -14.8378
+margin_right = 79.1083
+margin_bottom = 23.1622
+custom_fonts/font = SubResource( 1 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -26.5
+margin_bottom = 26.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MarginContainer"]
+position = Vector2( 27.2065, 26.1209 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )

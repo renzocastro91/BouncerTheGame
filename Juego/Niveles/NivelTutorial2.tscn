@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Juego/Niveles/NivelTutorial1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Objetos/ZanahoriaLlave.tscn" type="PackedScene" id=2]
+
+[node name="NivelTutorial2" instance=ExtResource( 1 )]
+nivel_actual = "res://Juego/Niveles/NivelTutorial2.tscn"
+
+[node name="ZanahoriaLlave2" parent="ZanahoriaLlave" index="1" instance=ExtResource( 2 )]
+position = Vector2( 848.958, 424.479 )
+
+[node name="PersonajePrincipal" parent="." index="12"]
+position = Vector2( 562.933, 477.119 )
+
+[node name="Portal" parent="." index="13"]
+position = Vector2( 717.949, 405.482 )
+proximo_nivel = "res://Juego/Niveles/NivelTutorial3.tscn"

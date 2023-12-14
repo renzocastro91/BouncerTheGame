@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/Niveles/NivelTutorial4.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Enemigos/Nubolin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Recursos/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 4 )
+
+[node name="NivelTutorial5" instance=ExtResource( 1 )]
+nivel_actual = "res://Juego/Niveles/NivelTutorial5.tscn"
+
+[node name="Nivel" parent="CapaFrente" index="2"]
+margin_left = 551.475
+margin_top = 21.1171
+margin_right = 740.475
+margin_bottom = 69.1171
+custom_fonts/font = SubResource( 1 )
+
+[node name="Nubolin" parent="Enemigos" index="2" instance=ExtResource( 2 )]
+position = Vector2( 487.719, 84.0896 )
+
+[node name="Portal" parent="." index="14"]
+position = Vector2( 935.167, 391.269 )
+proximo_nivel = "res://Juego/Niveles/NivelTutorial6.tscn"

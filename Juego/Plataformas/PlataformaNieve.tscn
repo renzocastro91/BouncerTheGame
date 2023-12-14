@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/Plataformas/Plataforma.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Recursos/Environment/ground_snow.png" type="Texture" id=2]
+[ext_resource path="res://Recursos/Environment/grass2.png" type="Texture" id=3]
+[ext_resource path="res://Recursos/Environment/grass1.png" type="Texture" id=4]
+
+[node name="PlataformaNieve" instance=ExtResource( 1 )]
+position = Vector2( -0.650856, 0.353554 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( 285.242, -48.6269, 285.242, -31.7798, 285.242, -12.9507, 236.75, 35.6397, -239.368, 47.4249, -285.577, -11.9598, -284.586, -48.627 )
+
+[node name="grass2" type="Sprite" parent="." index="2"]
+position = Vector2( -217.694, -82.8167 )
+texture = ExtResource( 3 )
+
+[node name="grass1" type="Sprite" parent="grass2" index="0"]
+position = Vector2( 401.357, 7.92805 )
+texture = ExtResource( 4 )
